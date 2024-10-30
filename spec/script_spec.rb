@@ -14,5 +14,9 @@ describe StringCalculator do
         it "returns the sum of two numbers separated by comma" do
             expect(string_calculator.add("100,1")).to eql(101)
         end
+
+        it "returns the sum of unknown amount of numbers" do
+            expect(string_calculator.add("10,2,0,4")).to eql(16)
+        end
     end
 end
