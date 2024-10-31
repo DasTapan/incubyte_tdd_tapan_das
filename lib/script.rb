@@ -6,7 +6,7 @@ class StringCalculator
             if input.start_with?("//")
                 custom_delimiter = input[2]
                 input_copy = input.slice(4,input.length)
-                nums = input_copy.split(custom_delimiter)
+                nums = input_copy.split(/[\n#{Regexp.escape(custom_delimiter)}]/)
                 nums.reduce(0) {|sum,n| sum + n.to_i}
             else
                 nums = input.split(/[\n,]/)

@@ -31,5 +31,9 @@ describe StringCalculator do
         it "returns the sum with a custom delimiter" do
             expect(string_calculator.add("//;\n1;2")).to eql(3)
         end
+
+        it "returns the sum with custom delimiter and new line" do
+            expect(string_calculator.add("//;\n10;20\n10;0\n5;5")).to eql(50)
+        end
     end
 end
