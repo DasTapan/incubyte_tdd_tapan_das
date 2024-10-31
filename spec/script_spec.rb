@@ -56,6 +56,6 @@ describe StringCalculator do
 
         it "custom delimiter can be of any length" do 
             expect(string_calculator.add("//[***]\n1***2***3")).to eql(6)
-        end
+        end        
     end
 end

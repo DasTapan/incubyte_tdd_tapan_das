@@ -12,14 +12,10 @@ class StringCalculator
             0
         else
             if input.start_with?("//[")
-                delimiter_start_index = input.split("").find_index("[")
-                delimiter_end_index = input.split("").find_index("]")
-                custom_delimiter_length = delimiter_end_index - delimiter_start_index - 1
-                custom_delimiter = ""
-                custom_delimiter_length.times do
-                    custom_delimiter += input.split("")[delimiter_start_index + 1]
-                end
-                input_copy = input.slice(delimiter_end_index + 2, input.length)
+                match = input.match(/\[(.*?)\]/)
+                custom_delimiter = match[1]
+                begin_index = input.byteindex(']')
+                input_copy = input.slice(begin_index + 2, input.length)
                 nums = input_copy.split(/[\n#{Regexp.escape(custom_delimiter)}]/)
                 get_sum(nums)                    
             elsif input.start_with?("//")
