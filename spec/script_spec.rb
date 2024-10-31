@@ -53,5 +53,9 @@ describe StringCalculator do
         it "ignores number greater than thousand" do
             expect(string_calculator.add("10,0,1001,1000",)).to eql(1010)
         end
+
+        it "custom delimiter can be of any length" do 
+            expect(string_calculator.add("//[***]\n1***2***3")).to eql(6)
+        end
     end
 end
