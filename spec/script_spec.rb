@@ -49,5 +49,9 @@ describe StringCalculator do
         it "returns how many time #add is invoked" do
             expect(string_calculator.times_add_invoked).to eql(10)
         end
+
+        it "ignores number greater than thousand" do
+            expect(string_calculator.add("10,0,1001,1000",)).to eql(1010)
+        end
     end
 end

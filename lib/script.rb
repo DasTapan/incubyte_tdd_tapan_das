@@ -26,7 +26,7 @@ class StringCalculator
     private
 
     def get_sum(nums)
-        nums_copy = nums.dup.map {|n| n.to_i}
+        nums_copy = nums.dup.map(&:to_i).filter {|n| n <= 1000 }
         negative_numbers = nums_copy.filter {|ele| ele < 0}
         unless negative_numbers.empty?
             if negative_numbers.length == 1
