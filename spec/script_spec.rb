@@ -61,5 +61,9 @@ describe StringCalculator do
         it "can have multiple delimters" do
             expect(string_calculator.add("//[*][%]\n1*2%3")).to eql(6)
         end
+
+        it "can have multiple delimetrs of any length" do
+            expect(string_calculator.add("//[*][%]\n1*2%3")).to eql(6)
+        end
     end
 end
