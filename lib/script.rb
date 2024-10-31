@@ -1,5 +1,5 @@
 class StringCalculator
-    attr_accessor :times_add_invoked
+    attr_reader :times_add_invoked
     
     def initialize
         @times_add_invoked = 0
