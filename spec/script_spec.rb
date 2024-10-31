@@ -35,5 +35,10 @@ describe StringCalculator do
         it "returns the sum with custom delimiter and new line" do
             expect(string_calculator.add("//;\n10;20\n10;0\n5;5")).to eql(50)
         end
+
+        it "throws exception if a negative number is passed" do 
+            expect {string_calculator.add("12,-5,3")}.
+            to raise_error(ArgumentError, "negative number not allowed, -5")
+        end
     end
 end
