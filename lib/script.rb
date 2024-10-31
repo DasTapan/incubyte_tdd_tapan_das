@@ -1,5 +1,13 @@
 class StringCalculator
+    attr_accessor :times_add_invoked
+    
+    def initialize
+        @times_add_invoked = 0
+    end
+
     def add(input)
+        @times_add_invoked += 1
+
         if input.empty?
             0
         else
