@@ -40,5 +40,10 @@ describe StringCalculator do
             expect {string_calculator.add("12,-5,3")}.
             to raise_error(ArgumentError, "negative number not allowed, -5")
         end
+
+        it "show multiple negative numbers in exception" do 
+            expect {string_calculator.add("12,-3,20,-5,3,-2,-3")}.
+            to raise_error(ArgumentError, "negative numbers found, -3,-5,-2,-3")
+        end
     end
 end

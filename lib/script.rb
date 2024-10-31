@@ -19,12 +19,15 @@ class StringCalculator
 
     def get_sum(nums)
         nums_copy = nums.dup.map {|n| n.to_i}
-        nums_copy.reduce(0) do |sum,n|
-            unless n >= 0
-                raise ArgumentError.new("negative number not allowed, #{n}")
+        negative_numbers = nums_copy.filter {|ele| ele < 0}
+        unless negative_numbers.empty?
+            if negative_numbers.length == 1
+                raise ArgumentError.new("negative number not allowed, #{negative_numbers.first}")
             else
-                sum + n
+                raise ArgumentError.new("negative numbers found, #{negative_numbers.join(',')}")
             end
-        end            
+        else
+            nums_copy.reduce(0) {|sum,n| sum + n}
+        end
     end    
 end
